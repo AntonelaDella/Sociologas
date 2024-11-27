@@ -41,13 +41,23 @@ if (isset($_GET['nombre'])) {
         <img src="<?php echo $autora['imagen']; ?>" alt="Imagen de <?php echo $autora['nombre']; ?>">
     </div>
 
-    <section>
+     <section>
         <h2><?php echo $autora['nombre'] . " (" . $autora['fecha'] . ")"; ?></h2>
         <p><?php echo $autora['descripcion']; ?></p>
         <p><?php echo $autora['detalles']; ?></p>
+
+        <?php if (isset ($autora ['video']) && !empty ($autora ['video'])): ?>
+            <div class="video-container">
+                <iframe width="560" height="315" 
+                        src="<?php echo $autora['video']; ?>" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+            </div>
+        <?php endif; ?> 
+         
     </section>
-<?php else: ?>
-    <section>
         <p></p>
     </section>
 <?php endif; ?>
